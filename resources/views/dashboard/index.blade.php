@@ -9,7 +9,7 @@
         <div class="border p-6 rounded-lg hover:shadow-md transition">
             <h3 class="font-bold text-lg">Módulo de Empleados</h3>
             <p class="text-sm text-gray-500 mb-4">Administra el personal del sistema.</p>
-            <a href="{{ route('empleados.index') }}" class="text-indigo-600 font-semibold hover:underline">Ir a empleados &rarr;</a>
+            <a href="{{ route('empleados.index') }}" class="text-indigo-600 font-semibold hover:underline">Consulta general &rarr;</a>
         </div>
     </div>
 </div>

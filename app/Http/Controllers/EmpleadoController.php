@@ -15,7 +15,8 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        $empleados = Empleado::orderBy('codigo')->get();
+        //$empleados = Empleado::orderBy('codigo')->get();
+        $empleados = DB::select('SELECT id, codigo, nombre, turno FROM empleados ORDER BY codigo ASC');
 
         return view('empleados.index', compact('empleados'));
     }
