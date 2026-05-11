@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<!--Layout contiene tanto la dashboard como la estuctua tipica da un html para una vista.-->
 
 @section('content')
 <div class="max-w-md mx-auto bg-white p-8 border border-gray-200 rounded-lg shadow-sm">
