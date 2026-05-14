@@ -32,5 +32,6 @@ Route::middleware('auth.session')->group(function () {
     // GET    /empleados/{id}/edit → edit    (formulario cambiar)
     // PUT    /empleados/{id}      → update  (guardar cambios)
     // DELETE /empleados/{id}      → destroy (eliminar)
+    
     Route::resource('empleados', EmpleadoController::class);
 });
