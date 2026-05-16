@@ -1,47 +1,47 @@
 <?php
- 
+
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\AlumnoController;
-use Illuminate\Support\Facades\Route;
- 
-// ── Rutas públicas (sin sesión) ────────────────────────────────────────────────
- 
-// Paso 6 - Login
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
+use App\Http\Controllers\ProfesorController; // <-- Importante incluirlo aquí
 
-Route::get('/',      [UsuarioController::class, 'showLogin'])->name('login');
+// ── Rutas públicas (Sin sesión) ────────────────────────────────────────────────
+
+Route::get('/',       [UsuarioController::class, 'showLogin'])->name('login');
 Route::post('/login', [UsuarioController::class, 'login'])->name('login.post');
- 
-// ── Rutas protegidas (requieren sesión activa) ─────────────────────────────────
-Route::middleware('auth.session')->group(function () {
- 
-    // Paso 11 - Logout
-    Route::post('/logout', [UsuarioController::class, 'logout'])->name('logout');
- 
-    // Paso 7 - Dashboard / ventana principal
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-        // ── ALUMNOS (Pasos 5 y 6) ─────────────────────────────────────────────────
-    Route::resource('alumnos', AlumnoController::class)->only(['index', 'create', 'store', 'destroy']);
-    Route::get('/alumnos/{codigo}', [App\Http\Controllers\AlumnoController::class, 'show'])->name('alumnos.show');
-    Route::get('/alumnos/{codigo}/edit', [App\Http\Controllers\AlumnoController::class, 'edit'])->name('alumnos.edit');
-    Route::put('/alumnos/{codigo}', [App\Http\Controllers\AlumnoController::class, 'update'])->name('alumnos.update');
 
-    // Pasos 8, 9, 10 - CRUD Empleados
-    // GET    /empleados           → index   (consulta general)
-    // GET    /empleados/create    → create  (formulario registrar)
-    // POST   /empleados           → store   (guardar nuevo)
-    // GET    /empleados/{id}      → show    (consulta individual)
-    // GET    /empleados/{id}/edit → edit    (formulario cambiar)
-    // PUT    /empleados/{id}      → update  (guardar cambios)
-    // DELETE /empleados/{id}      → destroy (eliminar)
-    
+
+// ── Rutas protegidas (Requieren sesión activa) ─────────────────────────────────
+
+Route::middleware('auth.session')->group(function () {
+
+    // Paso 11 - Cerrar Sesión
+    Route::post('/logout', [UsuarioController::class, 'logout'])->name('logout');
+
+    // Paso 7 - Panel Principal
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // ── MÓDULO DE ALUMNOS ──────────────────────────────────────────────────────
+    Route::get('/alumnos',              [AlumnoController::class, 'index'])->name('alumnos.index');
+    Route::get('/alumnos/create',       [AlumnoController::class, 'create'])->name('alumnos.create');
+    Route::post('/alumnos',             [AlumnoController::class, 'store'])->name('alumnos.store');
+    Route::get('/alumnos/{codigo}',     [AlumnoController::class, 'show'])->name('alumnos.show');
+    Route::get('/alumnos/{codigo}/editHtml', [AlumnoController::class, 'edit'])->name('alumnos.edit');
+    Route::put('/alumnos/{codigo}',     [AlumnoController::class, 'update'])->name('alumnos.update');
+    Route::delete('/alumnos/{codigo}',  [AlumnoController::class, 'destroy'])->name('alumnos.destroy');
+
+    // ── MÓDULO DE EMPLEADOS ────────────────────────────────────────────────────
     Route::resource('empleados', EmpleadoController::class);
 
-    Route::get('/profesores', function () {
-    return view('profesores.index');
-})->name('profesores.index');
+    // ── MÓDULO DE PROFESORES ───────────────────────────────────────────────────
+    Route::get('/profesores',             [ProfesorController::class, 'index'])->name('profesores.index');
+    Route::get('/profesores/create',      [ProfesorController::class, 'create'])->name('profesores.create');
+    Route::post('/profesores',            [ProfesorController::class, 'store'])->name('profesores.store');
+    Route::get('/profesores/{codigo}',    [ProfesorController::class, 'show'])->name('profesores.show');
+    Route::get('/profesores/{codigo}/edit', [ProfesorController::class, 'edit'])->name('profesores.edit');
+    Route::put('/profesores/{codigo}',    [ProfesorController::class, 'update'])->name('profesores.update');
+    Route::delete('/profesores/{codigo}', [ProfesorController::class, 'destroy'])->name('profesores.destroy');
+
 });
