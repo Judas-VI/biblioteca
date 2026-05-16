@@ -25,7 +25,7 @@ class EmpleadoController extends Controller
      * Paso 8 y 9 - Muestra el formulario para registrar un empleado.
      */
     public function create()
-    {
+    {   
         return view('empleados.create');
     }
 
