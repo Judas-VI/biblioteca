@@ -64,4 +64,20 @@ class AlumnoController extends Controller
             ->route('alumnos.index')
             ->with('exito', 'Alumno eliminado correctamente.');
     }
+
+    // 1. Mostrar la consulta individual de un alumno
+    public function show($codigo)
+    {
+        $alumno = Alumno::findOrFail($codigo);
+        return view('alumnos.show', compact('alumno')); 
+        // (Deberás crear el archivo resources/views/alumnos/show.blade.php después)
+    }
+
+    // 2. Mostrar el formulario para editar
+    public function edit($codigo)
+    {
+        $alumno = Alumno::findOrFail($codigo);
+        return view('alumnos.edit', compact('alumno'));
+        // (Deberás crear el archivo resources/views/alumnos/edit.blade.php después)
+    }
 }

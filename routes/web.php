@@ -26,6 +26,9 @@ Route::middleware('auth.session')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         // ── ALUMNOS (Pasos 5 y 6) ─────────────────────────────────────────────────
     Route::resource('alumnos', AlumnoController::class)->only(['index', 'create', 'store', 'destroy']);
+    Route::get('/alumnos/{codigo}', [App\Http\Controllers\AlumnoController::class, 'show'])->name('alumnos.show');
+    Route::get('/alumnos/{codigo}/edit', [App\Http\Controllers\AlumnoController::class, 'edit'])->name('alumnos.edit');
+    Route::put('/alumnos/{codigo}', [App\Http\Controllers\AlumnoController::class, 'update'])->name('alumnos.update');
 
     // Pasos 8, 9, 10 - CRUD Empleados
     // GET    /empleados           → index   (consulta general)

@@ -32,4 +32,5 @@ class Alumno extends Model
     {
         return $this->fecha_nacimiento->format('d/m/Y');
     }
+
 }
