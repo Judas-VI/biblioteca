@@ -1,10 +1,17 @@
 <?php $__env->startSection('content'); ?>
 <div class="flex justify-between items-center mb-6">
     <h1 class="text-2xl font-bold text-gray-800">Gestión de Alumnos</h1>
-    <a href="<?php echo e(route('alumnos.create')); ?>" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition shadow-sm">
-        Registrar Nuevo Alumno
+    <a href="<?php echo e(route('alumnos.create')); ?>" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition shadow-sm font-semibold">
+        + Registrar Nuevo Alumno
     </a>
 </div>
+
+<?php if(session('exito')): ?>
+    <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded shadow-sm">
+        <?php echo e(session('exito')); ?>
+
+    </div>
+<?php endif; ?>
 
 <div class="bg-white shadow-sm border border-gray-200 rounded-lg overflow-hidden">
     <table class="w-full text-left border-collapse">
@@ -31,13 +38,13 @@
                 </td>
                 <td class="p-3 text-sm text-center">
                     <div class="flex justify-center gap-4">
-                        <a href="<?php echo e(route('alumnos.show', $alumno->id)); ?>" class="text-blue-600 hover:underline">Ver</a>
-                        <a href="<?php echo e(route('alumnos.edit', $alumno->id)); ?>" class="text-yellow-600 hover:underline">Editar</a>
-                        <form action="<?php echo e(route('alumnos.destroy', $alumno->id)); ?>" method="POST" onsubmit="return confirm('¿Seguro que deseas eliminarlo?')">
+                        
+                        <form action="<?php echo e(route('alumnos.destroy', $alumno->codigo)); ?>" method="POST" onsubmit="return confirm('¿Seguro que deseas eliminar al alumno <?php echo e($alumno->nombre); ?>?')">
                             <?php echo csrf_field(); ?> 
                             <?php echo method_field('DELETE'); ?>
-                            <button type="submit" class="text-red-600 hover:underline">Eliminar</button>
+                            <button type="submit" class="text-red-600 hover:underline font-medium">Eliminar</button>
                         </form>
+
                     </div>
                 </td>
             </tr>
