@@ -21,11 +21,19 @@
             <?php if(session()->has('usuario')): ?>
             <div class="flex items-center gap-6">
                 <span>Bienvenido, <b><?php echo e(session('usuario')['nombre']); ?></b></span>
-                <a href="<?php echo e(route('empleados.index')); ?>" class="hover:text-indigo-200">Empleados</a>
-                <a href="<?php echo e(route('profesores.index')); ?>" class="hover:text-indigo-200">Profesores</a>
-                <form action="<?php echo e(route('logout')); ?>" method="POST" class="inline">
+                
+                <?php if(session('usuario.rol') === 'Administrador'): ?>
+                    <a href="<?php echo e(route('empleados.index')); ?>" class="hover:text-indigo-200 transition">Empleados</a>
+                    <a href="<?php echo e(route('alumnos.index')); ?>" class="hover:text-indigo-200 transition">Alumnos</a>
+                    <a href="<?php echo e(route('profesores.index')); ?>" class="hover:text-indigo-200 transition">Profesores</a>
+                
+                <?php elseif(session('usuario.rol') === 'Empleado'): ?>
+                    <a href="<?php echo e(route('libros.index')); ?>" class="hover:text-indigo-200 transition">📚 Libros</a>
+                <?php endif; ?>
+
+                <form action="<?php echo e(route('logout')); ?>" method="POST" class="inline" onsubmit="return confirm('¿Estás seguro de que deseas cerrar la sesión actual?');">
                     <?php echo csrf_field(); ?>
-                    <button type="submit" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded text-sm transition">
+                    <button type="submit" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded text-sm font-bold transition shadow-sm">
                         Cerrar Sesión
                     </button>
                 </form>
@@ -36,7 +44,7 @@
 
     <div class="container mx-auto mt-8 px-4">
         <?php if(session('exito')): ?>
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 shadow-sm">
             <?php echo e(session('exito')); ?>
 
         </div>

@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre_del_usuario', 50)->unique();
             $table->string('contrasena', 255);
+            $table->string('rol')->default('Empleado');
             $table->timestamps();
         });
     }

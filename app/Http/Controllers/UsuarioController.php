@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
  
 class UsuarioController extends Controller 
-//gestionan la lógica de la aplicación al procesar solicitudes HTTP
-//Actúan como intermediarios entre el modelo (datos) y la vista (interfaz)
+// gestionan la lógica de la aplicación al procesar solicitudes HTTP
+// Actúan como intermediarios entre el modelo (datos) y la vista (interfaz)
 {
     /**
      * Paso 6 - Muestra el formulario de inicio de sesión.
@@ -27,7 +27,7 @@ class UsuarioController extends Controller
     /**
      * Paso 6 - Procesa el inicio de sesión.
      * SQL embebido equivalente:
-     *   SELECT * FROM usuarios WHERE nombre_del_usuario = ? LIMIT 1
+     * SELECT * FROM usuarios WHERE nombre_del_usuario = ? LIMIT 1
      */
     public function login(Request $request)
     {
@@ -49,9 +49,11 @@ class UsuarioController extends Controller
         }
  
         // Guardar datos del usuario en sesión (Paso 7)
+        // Agregamos el 'rol' dentro de la estructura de tu sesión existente
         Session::put('usuario', [
             'id'     => $usuario->id,
             'nombre' => $usuario->nombre_del_usuario,
+            'rol'    => $usuario->rol,
         ]);
  
         return redirect()->route('dashboard');

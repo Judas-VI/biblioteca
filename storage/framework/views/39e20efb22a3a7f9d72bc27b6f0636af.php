@@ -62,7 +62,7 @@ unset($__errorArgs, $__bag); ?>
 
                 <div>
                     <label for="nombre" class="block text-sm font-bold text-gray-700 mb-1">Nombre completo <span class="text-red-500">*</span></label>
-                    <input type="text" id="nombre" name="nombre" value="<?php echo e(old('nombre')); ?>" placeholder="Apellidos Nombre" required
+                    <input type="text" id="nombre" name="nombre" value="<?php echo e(old('nombre')); ?>" required
                            class="w-full px-4 py-2.5 rounded-lg border outline-none transition-all duration-200 focus:ring-2 focus:ring-indigo-500 <?php $__errorArgs = ['nombre'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -125,7 +125,7 @@ unset($__errorArgs, $__bag); ?>
 
                 <div class="md:col-span-2">
                     <label for="direccion" class="block text-sm font-bold text-gray-700 mb-1">Dirección <span class="text-red-500">*</span></label>
-                    <input type="text" id="direccion" name="direccion" value="<?php echo e(old('direccion')); ?>" placeholder="Calle, número, colonia" required
+                    <input type="text" id="direccion" name="direccion" value="<?php echo e(old('direccion')); ?>" required
                            class="w-full px-4 py-2.5 rounded-lg border outline-none transition-all duration-200 focus:ring-2 focus:ring-indigo-500 <?php $__errorArgs = ['direccion'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -146,7 +146,7 @@ unset($__errorArgs, $__bag); ?>
 
                 <div>
                     <label for="telefono" class="block text-sm font-bold text-gray-700 mb-1">Teléfono <span class="text-red-500">*</span></label>
-                    <input type="text" id="telefono" name="telefono" value="<?php echo e(old('telefono')); ?>" placeholder="10 dígitos" required
+                    <input type="text" id="telefono" name="telefono" value="<?php echo e(old('telefono')); ?>" required
                            class="w-full px-4 py-2.5 rounded-lg border outline-none transition-all duration-200 focus:ring-2 focus:ring-indigo-500 <?php $__errorArgs = ['telefono'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

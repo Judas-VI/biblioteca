@@ -21,11 +21,19 @@
             @if(session()->has('usuario'))
             <div class="flex items-center gap-6">
                 <span>Bienvenido, <b>{{ session('usuario')['nombre'] }}</b></span>
-                <a href="{{ route('empleados.index') }}" class="hover:text-indigo-200">Empleados</a>
-                <a href="{{ route('profesores.index') }}" class="hover:text-indigo-200">Profesores</a>
-                <form action="{{ route('logout') }}" method="POST" class="inline">
+                
+                @if(session('usuario.rol') === 'Administrador')
+                    <a href="{{ route('empleados.index') }}" class="hover:text-indigo-200 transition">Empleados</a>
+                    <a href="{{ route('alumnos.index') }}" class="hover:text-indigo-200 transition">Alumnos</a>
+                    <a href="{{ route('profesores.index') }}" class="hover:text-indigo-200 transition">Profesores</a>
+                
+                @elseif(session('usuario.rol') === 'Empleado')
+                    <a href="{{ route('libros.index') }}" class="hover:text-indigo-200 transition">📚 Libros</a>
+                @endif
+
+                <form action="{{ route('logout') }}" method="POST" class="inline" onsubmit="return confirm('¿Estás seguro de que deseas cerrar la sesión actual?');">
                     @csrf
-                    <button type="submit" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded text-sm transition">
+                    <button type="submit" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded text-sm font-bold transition shadow-sm">
                         Cerrar Sesión
                     </button>
                 </form>
@@ -36,7 +44,7 @@
 
     <div class="container mx-auto mt-8 px-4">
         @if(session('exito'))
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 shadow-sm">
             {{ session('exito') }}
         </div>
         @endif

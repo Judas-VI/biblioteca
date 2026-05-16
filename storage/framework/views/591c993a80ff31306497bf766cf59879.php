@@ -4,7 +4,6 @@
     <div class="flex flex-col sm:flex-row justify-between items-center border-b pb-4 mb-6 gap-4">
         <div>
             <h1 class="text-2xl font-extrabold text-gray-900">Módulo de Profesores</h1>
-            <p class="text-sm text-gray-500">Listado general y administración del cuerpo docente.</p>
         </div>
         <a href="<?php echo e(route('profesores.create')); ?>" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-bold shadow transition flex items-center gap-1">
             ➕ Registrar Profesor

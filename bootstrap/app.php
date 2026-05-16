@@ -10,9 +10,13 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware): void {
-        //
+    ->withMiddleware(function (Middleware $middleware) {
+        // Registramos el alias para nuestro filtro de roles aquí adentro
+        $middleware->alias([
+            'rol' => \App\Http\Middleware\VerificarRol::class,
+        ]);
     })
-    ->withExceptions(function (Exceptions $exceptions): void {
-        //
-    })->create();
+    ->withExceptions(function (Exceptions $exceptions) {
+        // Aquí puedes manejar excepciones globales más adelante si lo necesitas
+    })
+    ->create();
