@@ -22,6 +22,7 @@
             <div class="flex items-center gap-6">
                 <span>Bienvenido, <b><?php echo e(session('usuario')['nombre']); ?></b></span>
                 <a href="<?php echo e(route('empleados.index')); ?>" class="hover:text-indigo-200">Empleados</a>
+                <a href="<?php echo e(route('profesores.index')); ?>" class="hover:text-indigo-200">Profesores</a>
                 <form action="<?php echo e(route('logout')); ?>" method="POST" class="inline">
                     <?php echo csrf_field(); ?>
                     <button type="submit" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded text-sm transition">

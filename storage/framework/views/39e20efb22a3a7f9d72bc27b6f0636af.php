@@ -41,7 +41,7 @@
                 
                 <div>
                     <label for="codigo" class="block text-sm font-bold text-gray-700 mb-1">Código <span class="text-red-500">*</span></label>
-                    <input type="text" id="codigo" name="codigo" value="<?php echo e(old('codigo')); ?>" placeholder="Ej: 2218813479" required
+                    <input type="text" id="codigo" name="codigo" value="<?php echo e(old('codigo')); ?>" placeholder="" required
                            class="w-full px-4 py-2.5 rounded-lg border outline-none transition-all duration-200 focus:ring-2 focus:ring-indigo-500 <?php $__errorArgs = ['codigo'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -83,7 +83,7 @@ unset($__errorArgs, $__bag); ?>
 
                 <div>
                     <label for="carrera" class="block text-sm font-bold text-gray-700 mb-1">Carrera <span class="text-red-500">*</span></label>
-                    <input type="text" id="carrera" name="carrera" value="<?php echo e(old('carrera', 'ICOM')); ?>" placeholder="Ej: ICOM" required
+                    <input type="text" id="carrera" name="carrera" value="<?php echo e(old('carrera', 'ICOM')); ?>" required
                            class="w-full px-4 py-2.5 rounded-lg border outline-none transition-all duration-200 focus:ring-2 focus:ring-indigo-500 <?php $__errorArgs = ['carrera'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

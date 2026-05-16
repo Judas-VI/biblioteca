@@ -42,21 +42,21 @@
                 
                 <div>
                     <label for="codigo" class="block text-sm font-bold text-gray-700 mb-1">Código <span class="text-red-500">*</span></label>
-                    <input type="text" id="codigo" name="codigo" value="{{ old('codigo') }}" placeholder="Ej: 2218813479" required
+                    <input type="text" id="codigo" name="codigo" value="{{ old('codigo') }}" placeholder="" required
                            class="w-full px-4 py-2.5 rounded-lg border outline-none transition-all duration-200 focus:ring-2 focus:ring-indigo-500 @error('codigo') border-red-500 bg-red-50 @else border-gray-300 bg-gray-50 focus:bg-white @enderror">
                     @error('codigo')<p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>@enderror
                 </div>
 
                 <div>
                     <label for="nombre" class="block text-sm font-bold text-gray-700 mb-1">Nombre completo <span class="text-red-500">*</span></label>
-                    <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}" placeholder="Apellidos Nombre" required
+                    <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}" required
                            class="w-full px-4 py-2.5 rounded-lg border outline-none transition-all duration-200 focus:ring-2 focus:ring-indigo-500 @error('nombre') border-red-500 bg-red-50 @else border-gray-300 bg-gray-50 focus:bg-white @enderror">
                     @error('nombre')<p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>@enderror
                 </div>
 
                 <div>
                     <label for="carrera" class="block text-sm font-bold text-gray-700 mb-1">Carrera <span class="text-red-500">*</span></label>
-                    <input type="text" id="carrera" name="carrera" value="{{ old('carrera', 'ICOM') }}" placeholder="Ej: ICOM" required
+                    <input type="text" id="carrera" name="carrera" value="{{ old('carrera', 'ICOM') }}" required
                            class="w-full px-4 py-2.5 rounded-lg border outline-none transition-all duration-200 focus:ring-2 focus:ring-indigo-500 @error('carrera') border-red-500 bg-red-50 @else border-gray-300 bg-gray-50 focus:bg-white @enderror">
                     @error('carrera')<p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>@enderror
                 </div>
@@ -70,14 +70,14 @@
 
                 <div class="md:col-span-2">
                     <label for="direccion" class="block text-sm font-bold text-gray-700 mb-1">Dirección <span class="text-red-500">*</span></label>
-                    <input type="text" id="direccion" name="direccion" value="{{ old('direccion') }}" placeholder="Calle, número, colonia" required
+                    <input type="text" id="direccion" name="direccion" value="{{ old('direccion') }}" required
                            class="w-full px-4 py-2.5 rounded-lg border outline-none transition-all duration-200 focus:ring-2 focus:ring-indigo-500 @error('direccion') border-red-500 bg-red-50 @else border-gray-300 bg-gray-50 focus:bg-white @enderror">
                     @error('direccion')<p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>@enderror
                 </div>
 
                 <div>
                     <label for="telefono" class="block text-sm font-bold text-gray-700 mb-1">Teléfono <span class="text-red-500">*</span></label>
-                    <input type="text" id="telefono" name="telefono" value="{{ old('telefono') }}" placeholder="10 dígitos" required
+                    <input type="text" id="telefono" name="telefono" value="{{ old('telefono') }}" required
                            class="w-full px-4 py-2.5 rounded-lg border outline-none transition-all duration-200 focus:ring-2 focus:ring-indigo-500 @error('telefono') border-red-500 bg-red-50 @else border-gray-300 bg-gray-50 focus:bg-white @enderror">
                     @error('telefono')<p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>@enderror
                 </div>

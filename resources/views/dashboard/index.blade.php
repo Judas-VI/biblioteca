@@ -8,18 +8,15 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl mb-10 mt-8">
         
         <a href="{{ route('empleados.index') }}" class="group border-2 border-indigo-600 p-6 rounded-xl text-center hover:bg-indigo-600 transition duration-300 shadow-sm">
-            <h3 class="font-bold text-xl text-indigo-600 group-hover:text-white transition">👥 Módulo de Empleados</h3>
-            <p class="text-xs text-gray-500 mt-1 group-hover:text-indigo-200 transition">Administrar personal y consultas</p>
+            <h3 class="font-bold text-xl text-indigo-600 group-hover:text-white transition">Módulo de Empleados</h3>
         </a>
 
         <a href="{{ route('alumnos.index') }}" class="group border-2 border-indigo-600 p-6 rounded-xl text-center hover:bg-indigo-600 transition duration-300 shadow-sm">
-            <h3 class="font-bold text-xl text-indigo-600 group-hover:text-white transition">🎓 Módulo de Alumnos</h3>
-            <p class="text-xs text-gray-500 mt-1 group-hover:text-indigo-200 transition">Registro, control y consultas ICOM</p>
+            <h3 class="font-bold text-xl text-indigo-600 group-hover:text-white transition">Módulo de Alumnos</h3>
         </a>
 
         <a href="{{ route('profesores.index') }}" class="group border-2 border-indigo-600 p-6 rounded-xl text-center hover:bg-indigo-600 transition duration-300 shadow-sm">
-            <h3 class="font-bold text-xl text-indigo-600 group-hover:text-white transition">🧑‍🏫 Módulo de Profesores</h3>
-            <p class="text-xs text-gray-500 mt-1 group-hover:text-indigo-200 transition">Gestión y control de profesores</p>
+            <h3 class="font-bold text-xl text-indigo-600 group-hover:text-white transition">Módulo de Profesores</h3>
         </a>
 
     </div>
