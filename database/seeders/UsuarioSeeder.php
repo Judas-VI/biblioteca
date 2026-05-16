@@ -17,22 +17,16 @@ class UsuarioSeeder extends Seeder
     {
         DB::table('usuarios')->insert([
             [
-                'nombre_del_usuario' => 'administrador',
-                'contrasena'         => Hash::make('admin123'),
-                'created_at'         => now(),
-                'updated_at'         => now(),
+                'nombre_del_usuario' => 'Administrador',
+                'contrasena'         => Hash::make('admin'),
             ],
             [
                 'nombre_del_usuario' => 'Ivonne',
-                'contrasena'         => Hash::make('ivonne123'),
-                'created_at'         => now(),
-                'updated_at'         => now(),
+                'contrasena'         => Hash::make('1234'),
             ],
             [
                 'nombre_del_usuario' => 'Blas',
-                'contrasena'         => Hash::make('blas123'),
-                'created_at'         => now(),
-                'updated_at'         => now(),
+                'contrasena'         => Hash::make('1234'),
             ],
         ]);
     }
