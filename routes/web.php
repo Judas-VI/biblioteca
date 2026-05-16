@@ -37,4 +37,8 @@ Route::middleware('auth.session')->group(function () {
     // DELETE /empleados/{id}      → destroy (eliminar)
     
     Route::resource('empleados', EmpleadoController::class);
+
+    Route::get('/profesores', function () {
+    return view('profesores.index');
+})->name('profesores.index');
 });

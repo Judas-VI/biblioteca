@@ -35,6 +35,16 @@
                 </a>
             </div>
         </div>
+
+        <div class="border p-6 rounded-lg hover:shadow-md transition">
+        <h3 class="font-bold text-lg">Módulo de Profesores</h3>
+        <p   p class="text-sm text-gray-500 mb-4">Menú principal de gestión de profesores.</p>
+        <div class="flex flex-col gap-1">
+        <a href="{{ route('profesores.index') }}" class="text-indigo-600 font-semibold hover:underline">
+            Abrir menú &rarr;
+        </a>
+    </div>
+</div>
  
     </div>
 </div>
