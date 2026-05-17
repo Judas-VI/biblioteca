@@ -55,10 +55,13 @@ Route::middleware('auth.session')->group(function () {
     Route::middleware('rol:Empleado')->group(function () {
         
         // ── MÓDULO DE LIBROS ───────────────────────────────────────────────────────
-        // Descomenta estas líneas cuando crees tu LibrosController
-        // Route::get('/libros',             [LibrosController::class, 'index'])->name('libros.index');
-        // Route::get('/libros/create',      [LibrosController::class, 'create'])->name('libros.create');
-        // Route::post('/libros',            [LibrosController::class, 'store'])->name('libros.store');
+        Route::get('/libros',             [\App\Http\Controllers\LibroController::class, 'index'])->name('libros.index');
+        Route::get('/libros/create',      [\App\Http\Controllers\LibroController::class, 'create'])->name('libros.create');
+        Route::post('/libros',            [\App\Http\Controllers\LibroController::class, 'store'])->name('libros.store');
+        Route::get('/libros/{isbn}',      [\App\Http\Controllers\LibroController::class, 'show'])->name('libros.show');
+        Route::get('/libros/{isbn}/edit', [\App\Http\Controllers\LibroController::class, 'edit'])->name('libros.edit');
+        Route::put('/libros/{isbn}',      [\App\Http\Controllers\LibroController::class, 'update'])->name('libros.update');
+        Route::delete('/libros/{isbn}',   [\App\Http\Controllers\LibroController::class, 'destroy'])->name('libros.destroy');
         
     });
 
