@@ -32,7 +32,8 @@
                 </td>
                 <td class="p-3 text-sm text-center">
                     <div class="flex justify-center gap-4">
-
+                            <a href="{{ route('alumnos.show', $alumno->id) }}" class="text-blue-600 hover:underline text-sm">Ver</a>
+                            <a href="{{ route('alumnos.edit', $alumno->id) }}" class="text-yellow-600 hover:underline text-sm">Editar</a>
                         <form action="{{ route('alumnos.destroy', $alumno->id) }}" method="POST" onsubmit="return confirm('¿Seguro que deseas eliminarlo?')">
                             @csrf 
                             @method('DELETE')

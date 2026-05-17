@@ -70,10 +70,10 @@ class AlumnoController extends Controller
             ->with('exito', 'Alumno registrado correctamente.');
     }
  
-    public function destroy($id)
+    public function destroy(Alumno $alumno)
     {
         // Instrucción SQL empotrada para la eliminación
-        DB::delete("DELETE FROM alumnos WHERE id = ?", [$id]);
+        DB::delete("DELETE FROM alumnos WHERE id = ?", [$alumno->id]);
 
         return redirect()
             ->route('alumnos.index')

@@ -16,8 +16,7 @@ class EmpleadoController extends Controller
     public function index()
     {
         //$empleados = Empleado::orderBy('codigo')->get();
-        $empleados = DB::select('SELECT id, codigo, nombre, turno FROM empleados ORDER BY codigo ASC');
-
+        $empleados = DB::select('SELECT * FROM empleados ORDER BY nombre ASC');
         return view('empleados.index', compact('empleados'));
     }
 
@@ -128,8 +127,7 @@ class EmpleadoController extends Controller
      */
     public function destroy(Empleado $empleado)
     {
-        $empleado->delete();
-
+        DB::delete("DELETE FROM empleados WHERE id = ?", [$empleado->id]);
         return redirect()
             ->route('empleados.index')
             ->with('exito', 'Empleado eliminado correctamente.');
