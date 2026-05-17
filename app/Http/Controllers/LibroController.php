@@ -23,8 +23,10 @@ class LibroController extends Controller
         $request->validate([
             'isbn'             => 'required|string|max:20|unique:libros,isbn',
             'titulo'           => 'required|string|max:150',
+            'autor'            => 'required|string|max:150',
             'editorial'        => 'required|string|max:100',
             'anio_publicacion' => 'required|integer|digits:4|min:1000|max:' . date('Y'),
+            'numero_ejemplares'=> 'required|integer|min:0',
         ], [
             'isbn.unique'      => 'Este ISBN ya se encuentra registrado.',
             'anio_publicacion.digits' => 'El año de publicación debe tener 4 dígitos.',
@@ -53,8 +55,10 @@ class LibroController extends Controller
 
         $request->validate([
             'titulo'           => 'required|string|max:150',
+            'autor'            => 'required|string|max:150',
             'editorial'        => 'required|string|max:100',
             'anio_publicacion' => 'required|integer|digits:4|min:1000|max:' . date('Y'),
+            'numero_ejemplares'=> 'required|integer|min:0',
         ]);
 
         $libro->update($request->all());

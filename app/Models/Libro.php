@@ -13,6 +13,6 @@ class Libro extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'isbn', 'titulo', 'editorial', 'anio_publicacion'
+        'isbn', 'titulo', 'editorial', 'anio_publicacion', 'autor', 'numero_ejemplares'
     ];
 }

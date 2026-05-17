@@ -25,12 +25,20 @@
             <p class="text-xl font-bold text-gray-900">{{ $libro->titulo }}</p>
         </div>
         <div>
+            <p class="text-sm font-semibold text-gray-400 uppercase tracking-wide">Autor</p>
+            <p class="text-lg font-medium">{{ $libro->autor }}</p>
+        </div>
+        <div>
             <p class="text-sm font-semibold text-gray-400 uppercase tracking-wide">Editorial</p>
             <p class="text-lg font-medium">{{ $libro->editorial }}</p>
         </div>
         <div>
             <p class="text-sm font-semibold text-gray-400 uppercase tracking-wide">Año de Publicación</p>
             <p class="text-lg font-medium">{{ $libro->anio_publicacion }}</p>
+        </div>
+        <div>
+            <p class="text-sm font-semibold text-gray-400 uppercase tracking-wide">Ejemplares Disponibles</p>
+            <p class="text-lg font-medium text-gray-900 bg-gray-100 inline-block px-3 py-1 rounded">{{ $libro->numero_ejemplares }}</p>
         </div>
     </div>
 </div>

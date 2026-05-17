@@ -1,17 +1,17 @@
-@extends('layouts.app')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 max-w-2xl mx-auto mt-6">
     
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-extrabold text-gray-900">Registrar Nuevo Libro</h1>
-        <a href="{{ route('libros.index') }}" class="text-green-600 hover:underline font-medium text-sm">
+        <a href="<?php echo e(route('libros.index')); ?>" class="text-green-600 hover:underline font-medium text-sm">
             &larr; Volver al catálogo
         </a>
     </div>
 
-    <form action="{{ route('libros.store') }}" method="POST" class="space-y-4">
-        @csrf
+    <form action="<?php echo e(route('libros.store')); ?>" method="POST" class="space-y-4">
+        <?php echo csrf_field(); ?>
 
         <div class="grid grid-cols-1 gap-4">
             <div>
@@ -47,4 +47,5 @@
         </div>
     </form>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\alanm\Herd\biblioteca\resources\views/libros/create.blade.php ENDPATH**/ ?>

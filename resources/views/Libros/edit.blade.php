@@ -24,6 +24,10 @@
                 <input type="text" name="titulo" value="{{ $libro->titulo }}" class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500" required>
             </div>
             <div>
+                <label class="block text-sm font-medium text-gray-700">Autor</label>
+                <input type="text" name="autor" value="{{ $libro->autor }}" class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500" required>
+            </div>
+            <div>
                 <label class="block text-sm font-medium text-gray-700">Editorial</label>
                 <input type="text" name="editorial" value="{{ $libro->editorial }}" class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500" required>
             </div>
@@ -32,6 +36,10 @@
                 <input type="number" name="anio_publicacion" value="{{ $libro->anio_publicacion }}" class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500" required>
             </div>
         </div>
+        <div>
+                <label class="block text-sm font-medium text-gray-700">Número de Ejemplares</label>
+                <input type="number" name="numero_ejemplares" value="{{ $libro->numero_ejemplares }}" min="0" class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500" required>
+            </div>
 
         <div class="mt-6 flex justify-end">
             <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-md shadow transition">
