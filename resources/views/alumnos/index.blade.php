@@ -27,13 +27,12 @@
                 <td class="p-3 text-sm text-gray-600">{{ $alumno->carrera }}</td>
                 <td class="p-3 text-sm">
                     <span class="px-2 py-1 rounded text-xs font-semibold {{ $alumno->sexo == 'F' ? 'bg-pink-100 text-pink-700' : 'bg-blue-100 text-blue-700' }}">
-                        {{ $alumno->sexo_texto }}
+                          {{ $alumno->sexo == 'F' ? 'Femenino' : 'Masculino' }}
                     </span>
                 </td>
                 <td class="p-3 text-sm text-center">
                     <div class="flex justify-center gap-4">
-                        <a href="{{ route('alumnos.show', $alumno->id) }}" class="text-blue-600 hover:underline">Ver</a>
-                        <a href="{{ route('alumnos.edit', $alumno->id) }}" class="text-yellow-600 hover:underline">Editar</a>
+
                         <form action="{{ route('alumnos.destroy', $alumno->id) }}" method="POST" onsubmit="return confirm('¿Seguro que deseas eliminarlo?')">
                             @csrf 
                             @method('DELETE')

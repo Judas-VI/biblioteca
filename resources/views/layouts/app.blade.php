@@ -21,8 +21,13 @@
             @if(session()->has('usuario'))
             <div class="flex items-center gap-6">
                 <span>Bienvenido, <b>{{ session('usuario')['nombre'] }}</b></span>
-                <a href="{{ route('empleados.index') }}" class="hover:text-indigo-200">Empleados</a>
-                <form action="{{ route('logout') }}" method="POST" class="inline">
+                @if(session('usuario')['nombre'] === 'administrador')
+                    <a href="{{ route('empleados.index') }}" class="hover:text-indigo-200">Empleados</a>
+                    <a href="{{ route('alumnos.index') }}" class="hover:text-indigo-200">Alumnos</a>
+                @endif
+                <a href="{{ route('alumnos.index') }}" class="hover:text-indigo-200">Libros</a>
+                <form action="{{ route('logout') }}" method="POST" class="inline"
+                onsubmit="return confirm('¿Estás seguro de que deseas cerrar la sesión actual?')">
                     @csrf
                     <button type="submit" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded text-sm transition">
                         Cerrar Sesión
@@ -34,14 +39,7 @@
     </nav>
 
     <div class="container mx-auto mt-8 px-4">
-        @if(session('exito'))
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-            {{ session('exito') }}
-        </div>
-        @endif
-
         @yield('content')
     </div>
 </body>
-
 </html>

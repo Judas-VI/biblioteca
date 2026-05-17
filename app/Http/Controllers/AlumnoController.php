@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
  
 use App\Models\Alumno;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
  
 class AlumnoController extends Controller
 {
@@ -13,8 +14,11 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        $alumnos = Alumno::orderBy('codigo')->get();
+        // Instrucción SQL empotrada para la consulta general
+        $alumnos = DB::select("SELECT * FROM alumnos ORDER BY nombre ASC");
+
         return view('alumnos.index', compact('alumnos'));
+
     }
  
     /**
@@ -46,20 +50,31 @@ class AlumnoController extends Controller
             'correo.unique' => 'Ese correo ya está registrado.',
         ]);
  
-        Alumno::create($request->all());
+        DB::insert(
+            "INSERT INTO alumnos (codigo, nombre, carrera, correo, direccion, telefono, sexo, fecha_nacimiento, created_at, updated_at) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())",
+            [
+                $request->input('codigo'),
+                $request->input('nombre'),
+                $request->input('carrera'),
+                $request->input('correo'),
+                $request->input('direccion'),
+                $request->input('telefono'),
+                $request->input('sexo'),
+                $request->input('fecha_nacimiento')
+            ]
+        );
  
         return redirect()
             ->route('alumnos.index')
             ->with('exito', 'Alumno registrado correctamente.');
     }
  
-    /**
-     * Elimina un alumno.
-     * SQL: DELETE FROM alumnos WHERE id = ?
-     */
-    public function destroy(Alumno $alumno)
+    public function destroy($id)
     {
-        $alumno->delete();
+        // Instrucción SQL empotrada para la eliminación
+        DB::delete("DELETE FROM alumnos WHERE id = ?", [$id]);
+
         return redirect()
             ->route('alumnos.index')
             ->with('exito', 'Alumno eliminado correctamente.');

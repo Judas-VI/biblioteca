@@ -4,6 +4,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\ProfesorController;
 use Illuminate\Support\Facades\Route;
  
 // ── Rutas públicas (sin sesión) ────────────────────────────────────────────────
@@ -26,6 +27,9 @@ Route::middleware('auth.session')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         // ── ALUMNOS (Pasos 5 y 6) ─────────────────────────────────────────────────
     Route::resource('alumnos', AlumnoController::class)->only(['index', 'create', 'store', 'destroy']);
+
+    Route::resource('profesores', ProfesorController::class)
+         ->only(['index', 'create', 'store', 'destroy']);
 
     // Pasos 8, 9, 10 - CRUD Empleados
     // GET    /empleados           → index   (consulta general)
