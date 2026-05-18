@@ -19,14 +19,17 @@ class UsuarioSeeder extends Seeder
             [
                 'nombre_del_usuario' => 'Administrador',
                 'contrasena'         => Hash::make('admin'),
+                'rol'         => 'Administrador',
             ],
             [
                 'nombre_del_usuario' => 'Ivonne',
                 'contrasena'         => Hash::make('1234'),
+                'rol'         => 'Empleado',
             ],
             [
                 'nombre_del_usuario' => 'Blas',
                 'contrasena'         => Hash::make('1234'),
+                'rol'         => 'Empleado',
             ],
         ]);
     }
