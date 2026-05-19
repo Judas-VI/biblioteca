@@ -90,13 +90,13 @@
                 <h3 class="font-bold text-lg">Módulo de Libros</h3>
                 <p class="text-sm text-gray-500 mb-4">Administracion de los Libros.</p>
                 <div class="flex flex-col gap-1">
-                    <a href="{{ route('profesores.create') }}" class="text-indigo-600 font-semibold hover:underline">
+                    <a href="{{ route('libros.create') }}" class="text-indigo-600 font-semibold hover:underline">
                         Registrar &rarr;
                     </a>
-                    <a href="{{ route('profesores.index') }}" class="text-indigo-600 font-semibold hover:underline">
+                    <a href="{{ route('libros.index') }}" class="text-indigo-600 font-semibold hover:underline">
                         consulta individual &rarr;
                     </a>
-                     <a href="{{ route('profesores.create') }}" class="text-indigo-600 font-semibold hover:underline">
+                     <a href="{{ route('libros.create') }}" class="text-indigo-600 font-semibold hover:underline">
                         consulta general &rarr;
                     </a>
                     <a href="{{ route('profesores.index') }}" class="text-indigo-600 font-semibold hover:underline">
