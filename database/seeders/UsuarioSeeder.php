@@ -1,9 +1,4 @@
 <?php
-// ─── database/seeders/UsuarioSeeder.php ───────────────────────────────────────
-// Paso 2 - Inserta los tres usuarios del sistema: administrador, Ivonne y Blas.
-// SQL equivalente:
-//   INSERT INTO usuarios (nombre_del_usuario, contrasena) VALUES
-//     ('administrador', '...'), ('Ivonne', '...'), ('Blas', '...');
  
 namespace Database\Seeders;
  

@@ -1,11 +1,4 @@
 <?php
-// ─── database/seeders/EmpleadoSeeder.php ──────────────────────────────────────
-// Pasos 8 y 9 - Inserta a Ivonne (777) y Blas (888).
-// SQL equivalente:
-//   INSERT INTO empleados (codigo, nombre, direccion, telefono, sexo, fecha_nacimiento, turno)
-//   VALUES
-//     (777, 'Ivonne Lopez', 'Olivos 234', '3344667788', 'F', '2001-10-10', 'Matutino'),
-//     (888, 'Blas Gonzalez', 'Cerezos 567', '3311994477', 'M', '1970-02-25', 'Vespertino');
  
 namespace Database\Seeders;
  
